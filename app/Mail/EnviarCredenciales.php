@@ -28,11 +28,13 @@ class EnviarCredenciales extends Mailable
      */
     public function build()
     {
+        /*
         return $this->subject('App Oficios | Credenciales')
                     ->markdown('emails.enviarCredenciales')
                     ->with([
                         'email' => $this->data['email'],
                         'password' => $this->data['password']
                     ]);
+                    */
     }
 }
