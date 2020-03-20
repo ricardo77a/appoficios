@@ -10,8 +10,6 @@ class AuthController extends Controller
 {
 	public function signup(Request $request)
 	{
-
-
 		//$array = array($request->all() , 'Valores');
 		//return response()->json($request->all());
 		//return response()->json($array);
@@ -27,7 +25,7 @@ class AuthController extends Controller
 			'password' => bcrypt($request->password),
 			'tipo' => $request->tipo,
 		]);
-		//$user->save();
+		$user->save();
 
 		$data = array('email' => $request->email, 'password' => $request->password);
 		Mail::to($data['email'])->send(new EnviarCredenciales($data));

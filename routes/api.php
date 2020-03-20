@@ -21,12 +21,22 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Route::get('/login', 'Auth\LoginController@login')->middleware('auth.basic.once');
 //Route::get('/proveedor/index', 'Proveedor\ProveedorController@index')->name('proveedor.index');
 
+
+/*
+	Content-Type		application/json
+	X-Requested-With	XMLHttpRequest
+*/
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
 
+
     Route::group(['middleware' => 'auth:api'], function() {
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
+        /* Rutas de consulta de usuarios */
     });
 });
+
+Route::get('all-users', 'GetUsersController@all');
+Route::get('get-user/', 'GetUsersController@get');
