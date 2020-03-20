@@ -25,10 +25,10 @@ class AuthController extends Controller
 			'password' => bcrypt($request->password),
 			'tipo' => $request->tipo,
 		]);
-		$user->save();
+		//$user->save();
 
 		$data = array('email' => $request->email, 'password' => $request->password);
-		Mail::to($data['email'])->send(new EnviarCredenciales($data));
+		//Mail::to($data['email'])->send(new EnviarCredenciales($data));
 
 		return response()->json([
 			'message' => 'Usuario creado con éxito',
