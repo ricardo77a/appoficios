@@ -28,7 +28,7 @@ class AuthController extends Controller
 		//$user->save();
 
 		$data = array('email' => $request->email, 'password' => $request->password);
-		//Mail::to($data['email'])->send(new EnviarCredenciales($data));
+		Mail::to($data['email'])->send(new EnviarCredenciales($data));
 
 		return response()->json([
 			'message' => 'Usuario creado con éxito',
